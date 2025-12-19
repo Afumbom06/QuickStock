@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { Camera, User, Loader2 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { motion } from 'motion/react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface EditableAvatarUploaderProps {
   currentAvatar?: string;

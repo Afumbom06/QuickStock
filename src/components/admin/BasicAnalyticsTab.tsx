@@ -7,7 +7,7 @@ import { Button } from '../ui/button';
 import { RefreshCw, TrendingUp, TrendingDown } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
 import { motion } from 'motion/react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 export function BasicAnalyticsTab() {
   const { sales, expenses, inventory, customers, isOnline } = useApp();

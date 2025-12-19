@@ -28,7 +28,7 @@ import {
   BarChart3,
   TrendingUp
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { Badge } from '../components/ui/badge';
 import { Progress } from '../components/ui/progress';
 import { motion } from 'motion/react';

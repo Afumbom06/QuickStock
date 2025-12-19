@@ -34,7 +34,7 @@ import {
   Legend, 
   ResponsiveContainer 
 } from 'recharts';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 export function MiniReports() {
   const { sales, expenses, user, isOnline, refreshData } = useApp();

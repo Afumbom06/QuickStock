@@ -28,7 +28,7 @@ import {
   Badge as BadgeIcon,
   Star
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { Badge } from '../components/ui/badge';
 import { motion } from 'motion/react';
 

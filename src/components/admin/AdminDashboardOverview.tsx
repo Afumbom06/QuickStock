@@ -132,7 +132,7 @@ export function AdminDashboardOverview() {
         className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
       >
         <div>
-          <h2 className="text-2xl text-gray-900">Welcome Back, Admin! 👋</h2>
+          <h2 className="text-2xl text-gray-900">Welcome Back, Admin! </h2>
           <p className="text-gray-600 mt-1">
             Here's what's happening with your business today
           </p>

@@ -24,7 +24,7 @@ import { Badge } from '../components/ui/badge';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { format } from 'date-fns';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import {
   AlertDialog,
   AlertDialogAction,

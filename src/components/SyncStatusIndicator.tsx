@@ -3,7 +3,7 @@ import { useApp } from '../contexts/AppContext';
 import { RefreshCw, Check, AlertCircle, Loader2 } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 import { Button } from './ui/button';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { motion, AnimatePresence } from 'motion/react';
 
 export function SyncStatusIndicator() {

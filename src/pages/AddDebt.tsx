@@ -17,7 +17,7 @@ import {
   TrendingDown,
   Calendar as CalendarIcon
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { motion } from 'motion/react';
 import { format } from 'date-fns';
 import {

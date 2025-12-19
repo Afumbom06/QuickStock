@@ -18,7 +18,7 @@ import { Link, useNavigate } from 'react-router';
 import { Menu, Calendar, Wifi, WifiOff, Search, Bell, User, Settings, LogOut, Store, ChevronDown, Sun, Moon, Languages } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
 import { useAuth } from '../contexts/AuthContext';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 export function TopNavBar({ onMenuClick }: { onMenuClick?: () => void }) {
   const { isOnline, syncQueueCount, t, user: appUser, language, changeLanguage, theme, toggleTheme } = useApp();
