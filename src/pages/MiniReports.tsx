@@ -145,11 +145,12 @@ export function MiniReports() {
     recentSales.forEach(sale => {
       if (sale.items && Array.isArray(sale.items)) {
         sale.items.forEach(item => {
-          const existing = itemMap.get(item.itemId) || { name: item.name, quantity: 0, revenue: 0 };
-          itemMap.set(item.itemId, {
+          const key = (item as any).itemId || (item as any).id;
+          const existing = itemMap.get(key) || { name: item.name, quantity: 0, revenue: 0 };
+          itemMap.set(key, {
             name: item.name,
-            quantity: existing.quantity + item.quantity,
-            revenue: existing.revenue + (item.price * item.quantity)
+            quantity: existing.quantity + (item.quantity || 0),
+            revenue: existing.revenue + ((item.price || 0) * (item.quantity || 0))
           });
         });
       }

@@ -62,7 +62,11 @@ export const triggerBackgroundSync = async () => {
   if ('serviceWorker' in navigator && 'sync' in ServiceWorkerRegistration.prototype) {
     try {
       const registration = await navigator.serviceWorker.ready;
-      await registration.sync.register('sync-mini-erp-data');
+      // registration.sync may not be present in all TS DOM typings; guard and cast
+      const syncReg: any = (registration as any).sync;
+      if (syncReg && typeof syncReg.register === 'function') {
+        await syncReg.register('sync-mini-erp-data');
+      }
       console.log('[PWA] Background sync registered');
       return true;
     } catch (error) {

@@ -11,6 +11,10 @@ export interface Sale {
   paymentType: 'cash' | 'momo' | 'credit';
   customerNote?: string;
   customerName?: string;
+  // Optional richer sale structure used in UI
+  items?: Array<{ id?: string; itemId?: string; name?: string; quantity?: number; price?: number }>;
+  currency?: string;
+  paymentMethod?: string;
   date: string;
   synced: boolean;
 }
@@ -23,6 +27,7 @@ export interface Expense {
   date: string;
   receipt?: string; // Base64 encoded image or URL
   synced: boolean;
+  currency?: string;
 }
 
 export interface InventoryItem {
@@ -33,6 +38,9 @@ export interface InventoryItem {
   sellingPrice: number;
   lowStockAlert: number;
   synced: boolean;
+  category?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface Customer {
@@ -41,6 +49,10 @@ export interface Customer {
   phone?: string;
   notes?: string;
   synced: boolean;
+  totalDebt?: number;
+  currency?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface DebtRecord {
@@ -66,6 +78,14 @@ export interface User {
   currency: string;
   theme: 'light' | 'dark';
   language: 'en' | 'fr';
+  // Additional optional fields used by the UI
+  name?: string;
+  businessName?: string;
+  shopCategory?: string;
+  description?: string;
+  website?: string;
+  taxId?: string;
+  createdAt?: string;
 }
 
 class Database {

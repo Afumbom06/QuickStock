@@ -195,8 +195,8 @@ export function DataExport() {
     }
   };
 
-  const handleExport = async (optionId: string, format: 'csv' | 'pdf') => {
-    setExporting(`${optionId}-${format}`);
+  const handleExport = async (optionId: string, fileFormat: 'csv' | 'pdf') => {
+    setExporting(`${optionId}-${fileFormat}`);
 
     try {
       await new Promise(resolve => setTimeout(resolve, 800)); // Simulate processing
@@ -206,7 +206,7 @@ export function DataExport() {
 
       switch (optionId) {
         case 'sales':
-          if (format === 'csv') {
+          if (fileFormat === 'csv') {
             const salesData = sales.map(s => ({
               Date: format(new Date(s.date), 'yyyy-MM-dd'),
               Item: s.itemName,
@@ -229,7 +229,7 @@ export function DataExport() {
           break;
 
         case 'expenses':
-          if (format === 'csv') {
+          if (fileFormat === 'csv') {
             const expensesData = expenses.map(e => ({
               Date: format(new Date(e.date), 'yyyy-MM-dd'),
               Category: e.category,
@@ -249,7 +249,7 @@ export function DataExport() {
           break;
 
         case 'inventory':
-          if (format === 'csv') {
+          if (fileFormat === 'csv') {
             const inventoryData = inventory.map(i => ({
               Name: i.name,
               Quantity: i.quantity,
@@ -288,7 +288,7 @@ export function DataExport() {
             };
           });
 
-          if (format === 'csv') {
+          if (fileFormat === 'csv') {
             generateCSV(customersWithDebts, ['Name', 'Phone', 'Balance', 'Transactions'], `customers-${timestamp}.csv`);
           } else {
             const pdfData = customersWithDebts.map(c => ({
@@ -319,7 +319,7 @@ export function DataExport() {
       }
 
       toast.success('Export successful!', {
-        description: `Downloaded ${format.toUpperCase()} file`,
+        description: `Downloaded ${fileFormat.toUpperCase()} file`,
       });
     } catch (error) {
       toast.error('Export failed', {

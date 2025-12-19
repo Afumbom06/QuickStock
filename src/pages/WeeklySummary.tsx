@@ -87,11 +87,12 @@ export function WeeklySummary() {
     weekSales.forEach(sale => {
       if (sale.items && Array.isArray(sale.items)) {
         sale.items.forEach(item => {
-          const existing = itemSales.get(item.itemId) || { name: item.name, quantity: 0, revenue: 0 };
-          itemSales.set(item.itemId, {
+          const key = (item as any).itemId || (item as any).id;
+          const existing = itemSales.get(key) || { name: item.name, quantity: 0, revenue: 0 };
+          itemSales.set(key, {
             name: item.name,
-            quantity: existing.quantity + item.quantity,
-            revenue: existing.revenue + (item.price * item.quantity)
+            quantity: existing.quantity + (item.quantity || 0),
+            revenue: existing.revenue + ((item.price || 0) * (item.quantity || 0))
           });
         });
       }

@@ -40,7 +40,7 @@ import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { motion } from 'motion/react';
 import { useAuth } from '../contexts/AuthContext';
-import { ProgressBar } from '../components/ui/progress';
+import { Progress } from '../components/ui/progress';
 
 export function Settings() {
   const { user: appUser, syncQueueCount, isOnline } = useApp();

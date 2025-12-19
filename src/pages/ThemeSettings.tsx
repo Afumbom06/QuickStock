@@ -27,6 +27,9 @@ import { toast } from 'sonner';
 import { Badge } from '../components/ui/badge';
 import { motion } from 'motion/react';
 
+// Theme identifiers used across this file
+type ThemeId = 'light' | 'dark' | 'system';
+
 const THEMES = [
   {
     id: 'light',
@@ -90,7 +93,7 @@ const THEMES = [
 export function ThemeSettings() {
   const { user, setUser, isOnline } = useApp();
   const navigate = useNavigate();
-  const [selectedTheme, setSelectedTheme] = useState(user?.theme || 'light');
+  const [selectedTheme, setSelectedTheme] = useState<ThemeId>((user?.theme ?? 'light') as ThemeId);
   const [loading, setLoading] = useState(false);
 
   const handleSave = async () => {

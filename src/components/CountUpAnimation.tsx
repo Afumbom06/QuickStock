@@ -4,9 +4,10 @@ interface CountUpAnimationProps {
   end: number;
   duration?: number;
   decimals?: number;
+  className?: string;
 }
 
-export function CountUpAnimation({ end, duration = 1000, decimals = 0 }: CountUpAnimationProps) {
+export function CountUpAnimation({ end, duration = 1000, decimals = 0, className }: CountUpAnimationProps) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -34,5 +35,7 @@ export function CountUpAnimation({ end, duration = 1000, decimals = 0 }: CountUp
     requestAnimationFrame(animate);
   }, [end, duration]);
 
-  return <>{count.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}</>;
+  return (
+    <span className={className}>{count.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}</span>
+  );
 }
